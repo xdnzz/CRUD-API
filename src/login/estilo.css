@@ -1,0 +1,57 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.divpai {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#121214;
+}
+
+.divfilho {
+    display: flex;
+    flex-direction: column;
+    background: #7b7777;
+    align-items: center;
+    width: 350px;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.divfilho h1 {
+    color: #fff;
+    margin: 30px;
+}
+
+.divfilho form {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.divfilho input  {
+    margin-bottom: 4px;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.divfilho button {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background: #46464d;
+    color: #FFf;
+    transition: ease;
+}
+
+.divfilho button:hover {
+
+    background: #4e4e53;
+    transform: scale(1.1);
+    transition: all 0.1s;
+}
