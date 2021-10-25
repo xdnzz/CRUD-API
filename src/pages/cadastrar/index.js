@@ -1,9 +1,7 @@
-import axios from 'axios'
-
-import './estilo.css'
-
-
-import {useState} from 'react'
+import axios from 'axios';
+import './estilo.css';
+import {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Cadastrar(){
 
@@ -46,6 +44,7 @@ export default function Cadastrar(){
                     <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Login" />
                     <input onChange={(e)=>handle(e)} type="password" id="password" value={dados.password} placeholder="Password" /> <br/>
                     <button type="submit">Logar</button>
+                    <Link to="/" className="link">Já possui uma conta? Faça login!</Link>
                 </form>
             </div>       
             

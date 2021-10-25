@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import './estilo.css'
 
-
+import {Link} from 'react-router-dom'
 import {useState} from 'react'
 
 export default function Login(){
@@ -46,6 +46,7 @@ export default function Login(){
                     <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Login" />
                     <input onChange={(e)=>handle(e)} type="password" id="password" value={dados.password} placeholder="Password" /> <br/>
                     <button type="submit">Logar</button>
+                    <Link to="/cadastrar" className="link">Não possui conta? Cadastre-se!</Link>
                 </form>
             </div>       
             
