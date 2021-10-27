@@ -1,3 +1,55 @@
+body {
+    background-color: rgb(43, 43, 43);
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.conteudo-postar form{
+    flex-direction: column;
+    display: flex;
+    padding: 10px;
+    background: rgb(80, 79, 79);
+    align-items: center;
+    margin-top: 10px;
+    border: 2px solid rgb(192, 189, 189);
+    width: 330px;
+    border-radius: 5px;
+}
+
+.inputs {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -19,28 +71,11 @@
     border: 2px solid rgb(192, 189, 189);
 }
 
-.container form input {
-    width: 230px;
-    height: 20px;
-    border:none;
-    border-radius: 3px;
-    margin-bottom: 10px;
-}
 
 
 
 
-.container form button {
-    width: 100px;
-    height: 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-
-}
-
-
-.renderizado{
+.renderizar-conteudo{
 
  background: rgb(80, 79, 79);
  border: 2px solid rgb(192, 189, 189);
@@ -50,6 +85,5 @@
  height: auto;
  padding: 30px;
  width: 500px;
- margin-bottom: 20px;
- 
+ margin-top: 30px;
 }

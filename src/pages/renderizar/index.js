@@ -47,33 +47,50 @@ function submit(e){
     })
 }
 
+function reacao(e){
+    e.preventDefault();
+    authAxios.post(url, {
+        like: false,
+        love: false
+    })
+    .then(res=>{
+        console.log(res)
+    })
+}
+
+
+
 useEffect(()=>{
   
     async function loadData(){
       const response = await authAxios.get('https://segware-book-api.segware.io/api/feeds');
       setPegar(response.data);
-  
-      
+      console.log(response.data)
     }
   
     loadData()
   }
-  ,[authAxios])
+  ,[])
+
+  
 
     return(
 
-       <div className="container">
-            <div className="content">
+       <div className="container-principal">
+            <div className="conteudo-postar">
                 <form onSubmit={(e)=>submit(e)}>
-                    <input className="inputs" onChange={(e)=>handle(e)} type="text" id="content" value={data.content}/>
+                    <textarea className="inputs" onChange={(e)=>handle(e)} type="text" id="content" value={data.content}
+                    placeholder="Digite aqui o texto a ser publicado"
+                    ></textarea>
+                   
                     <button type="submit">Publicar </button>
               
                 </form>
             </div>
-            <div className="conteudo">
+            <div className="div-conteudo">
                 {pegar.map((e)=>{
                     return(
-                        <div className="renderizado">{e.content}</div>
+                        <div className="renderizar-conteudo">{e.content}</div>
                     )
                 })}
             </div>
