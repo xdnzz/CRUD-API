@@ -8,7 +8,8 @@ import './estilo.css'
 export default function Feed(){
   
     const accessToken = window.localStorage.getItem('chave');
-    const url = 'https://segware-book-api.segware.io/api/feed'
+    const url = 'https://segware-book-api.segware.io/api/feed';
+    const urlReaction = 'https://segware-book-api.segware.io/api/reaction';
     
     const authAxios = axios.create({
       baseURL: url,
@@ -23,8 +24,15 @@ export default function Feed(){
 
     });
 
+    const [react, setReact] = useState({
+        like: false,
+        love: false
+
+    })
+
     const [pegar, setPegar] = useState([]);
 
+    const [id, setId] = useState('');
 
 
 function handle(e){
@@ -32,8 +40,6 @@ function handle(e){
     const newData={...data};
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(newData)
-
 }
 
 
@@ -43,32 +49,58 @@ function submit(e){
         content: data.content
     })
     .then(res=>{
-        console.log(res)
+        setId(res.data)
+        console.log(id)
     })
 }
 
-function reacao(e){
+function love(e){
     e.preventDefault();
-    authAxios.post(url, {
-        like: false,
-        love: false
+    const newDataReact={...react};
+    newDataReact[e.target.id] = e.target.value;
+    setReact(newDataReact);
+    authAxios.post(urlReaction, {
+        feedId: id,
+        like:true,
+        love:true
+     
     })
     .then(res=>{
-        console.log(res)
+       // console.log(res)
     })
 }
+
+
+function like(e){
+    e.preventDefault();
+    const newDataReact={...react};
+    newDataReact[e.target.id] = e.target.value;
+    setReact(newDataReact);
+    authAxios.post(urlReaction, {
+        feedId: id,
+        like:true,
+        love:true 
+       
+        
+    })
+    .then(res=>{
+       // console.log(res)
+    })
+   
+}
+
 
 
 
 useEffect(()=>{
+
   
     async function loadData(){
       const response = await authAxios.get('https://segware-book-api.segware.io/api/feeds');
-      setPegar(response.data);
-      console.log(response.data)
+      setPegar(response.data);         
     }
   
-    loadData()
+    loadData();
   }
   ,[])
 
@@ -90,7 +122,11 @@ useEffect(()=>{
             <div className="div-conteudo">
                 {pegar.map((e)=>{
                     return(
-                        <div className="renderizar-conteudo">{e.content}</div>
+                        
+                        <div className="renderizar-conteudo">{e.content} <br/>
+                        <p>{e.id}</p>
+                        <button onClick={(e)=>love(e)}>Love</button> | <button onClick={(e)=>like(e)}>Like</button> 
+                        </div>
                     )
                 })}
             </div>
