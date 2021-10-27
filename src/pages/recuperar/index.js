@@ -42,10 +42,10 @@ export default function Recuperar(){
    
         <div className="divpai">
 
-            <div className="divfilho">
+            <div className="divfilhorecuperar">
                 <p>Esqueceu sua senha?<br/>Digite seu login para recuperá-la</p>
        
-                    <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Login" />
+                    <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Nome de usuário" />
                     <br/>
                     <button onClick={()=>pegarSenha()}>Recuperar senha</button>
               

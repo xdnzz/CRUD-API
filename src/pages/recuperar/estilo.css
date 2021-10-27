@@ -11,26 +11,29 @@
     background:#121214;
 }
 
-.divfilho {
+.divfilhorecuperar {
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     background: #7b7777;
     align-items: center;
     width: 350px;
-    height: 235px;
+    height: 130px;
     border-radius: 4px;
-    margin: 10px;
     text-align: center;
 }
 
-.divfilho p {
+.divfilhorecuperar p {
     color: #fff;
-    margin: 10px;
-    padding: 30px;
+
 }
 
+.divfilhorecuperar input {
+    width: 170px;
+    height: 40px;
+}
 
-.divfilho button {
+.divfilhorecuperar button {
     border-radius: 5px;
     border: none;
     padding: 5px;
@@ -38,10 +41,12 @@
     background: #46464d;
     color: #FFf;
     transition: ease;
+    width: 150px;
+    height: 30px;
     margin-bottom: 10px;
 }
 
-.divfilho button:hover {
+.divfilhorecuperar button:hover {
 
     background: #4e4e53;
     transform: scale(1.1);

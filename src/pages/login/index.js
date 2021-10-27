@@ -1,3 +1,6 @@
+
+
+
 import axios from 'axios'
 
 import './estilo.css'
@@ -5,7 +8,12 @@ import './estilo.css'
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
 
+
+
+
 export default function Login(){
+
+
 
     const url = 'https://segware-book-api.segware.io/api/sign-in';
     const [dados, setDados] = useState({
@@ -13,16 +21,37 @@ export default function Login(){
         password: ''
     })
 
-    function submit(e){
+    async function submit(e){
         e.preventDefault();
-        axios.post(url, {
-            username: dados.username,
-            password: dados.password
-        })
-        .then(res=>{
-            console.log(res.data)
-        })
+
+        if(dados.username !== '' && dados.password!=='' ){
+            await axios.post(url, {
+                username: dados.username,
+                password: dados.password
+            })
+            .then((res)=>{
+                if(res.status === 200) {
+             
+                localStorage.setItem('chave', res.data);
+               
+                window.location.href="/feed";
+
+                }if(res.status !== 200 && res.status!==201){
+                    console.log(res.status)
+                    alert('ops, algo deu errado!');
+                    return;
+                }
+            })
+
+          
+            
+        } else {
+            alert('Ops, algum dos campos está vazio!')
+            return;
+        }
+       
     }
+ 
     
     function handle(e){
    
@@ -46,7 +75,9 @@ export default function Login(){
                     <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Login" />
                     <input onChange={(e)=>handle(e)} type="password" id="password" value={dados.password} placeholder="Password" /> <br/>
                     <button type="submit">Logar</button>
-                    <Link to="/cadastrar" className="link">Não possui conta? Cadastre-se!</Link>
+                    <div>
+                    <Link to="/cadastrar" className="link">Não possui conta? Cadastre-se!</Link> <br/> <Link className="forgot-password" to="/recuperar">Esqueci minha senha</Link>
+                    </div>
                 </form>
             </div>       
             

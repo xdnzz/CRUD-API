@@ -13,13 +13,22 @@ export default function Cadastrar(){
 
     function submit(e){
         e.preventDefault();
-        axios.post(url, {
-            username: dados.username,
-            password: dados.password
-        })
-        .then(res=>{
-            console.log(res.data)
-        })
+        if(dados.username!=="" && dados.password!==""){
+            axios.post(url, {
+                username: dados.username,
+                password: dados.password
+            })
+            .then(res=>{
+                console.log(res);
+                if(res.status === 200) {
+                    alert('Conta criada com sucesso! Agora você pode logar.');
+                }
+            })
+        } else {
+            alert('Ops! Algum camp está vazio!')
+        }
+       
+        
     }
     
     function handle(e){
@@ -31,7 +40,6 @@ export default function Cadastrar(){
     
     }
     
-
 
 
     return (

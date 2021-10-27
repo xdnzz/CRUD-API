@@ -15,7 +15,7 @@ export default function Routes(){
             <Route exact path="/" component={Login}/>
             <Route exact path="/cadastrar" component={Cadastrar}/>
             <Route exact path="/recuperar" component={Recuperar}/>
-            <Route exact path="/feed" component={Renderizar} isPrivate/>
+            <Route exact path="/feed" component={Renderizar} />
         </Switch>
     )
 }

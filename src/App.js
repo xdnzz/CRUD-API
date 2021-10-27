@@ -1,14 +1,17 @@
 
-import Routes from './routes'
-import {BrowserRouter} from 'react-router-dom'
-import './estilo.css'
+import Routes from './routes';
+import {BrowserRouter} from 'react-router-dom';
+import './estilo.css';
+import AuthProvider from './contexts/auth';
 
 
 function App(){
   return(
-   <BrowserRouter>
-    <Routes/>
-   </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes/>
+      </BrowserRouter>
+   </AuthProvider>
   )
 }
 

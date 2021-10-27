@@ -1,4 +1,6 @@
+import {useContext} from 'react';
 import {Route, Redirect} from 'react-router-dom';
+import {AuthContext} from '../contexts/auth';
 
 
 export default function RouteWrapper({
@@ -7,8 +9,7 @@ export default function RouteWrapper({
     ...rest
 }) {
 
-    const loading = false;
-    const signed = false;
+    const {signed, loading} = useContext(AuthContext)
 
 
     if(loading){
@@ -24,7 +25,7 @@ export default function RouteWrapper({
     }
 
     if(signed && !isPrivate){
-        return <Redirect to="/dashboard"/>
+        return <Redirect to="/feed"/>
     }
 
 

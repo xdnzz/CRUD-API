@@ -16,8 +16,10 @@
     background: #7b7777;
     align-items: center;
     width: 350px;
+    height: 250px;
     border-radius: 4px;
     margin: 10px;
+    text-align: center;
 }
 
 .divfilho h1 {
@@ -31,6 +33,9 @@
     flex-direction: column;
     margin-bottom: 10px;
 }
+
+
+
 
 .divfilho input  {
     margin-bottom: 4px;
@@ -47,6 +52,7 @@
     background: #46464d;
     color: #FFf;
     transition: ease;
+    margin-bottom: 10px;
 }
 
 .divfilho button:hover {
