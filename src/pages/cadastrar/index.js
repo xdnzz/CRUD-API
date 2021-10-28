@@ -22,6 +22,7 @@ export default function Cadastrar(){
                 console.log(res);
                 if(res.status === 200) {
                     alert('Conta criada com sucesso! Agora você pode logar.');
+                    window.location.href="/";
                 }
             })
         } else {
@@ -44,7 +45,7 @@ export default function Cadastrar(){
 
     return (
    
-        <div className="divpai">
+        <div className="divpai-cadastrar">
 
             <div className="divfilho">
                 <h1>Cadastre-se</h1>

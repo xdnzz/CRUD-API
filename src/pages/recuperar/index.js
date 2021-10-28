@@ -26,12 +26,12 @@ export default function Recuperar(){
     }
 
      function pegarSenha(){
-        const resposta =  axios.get(url)
+        axios.get(url)
         .then(res=>{
           const lerDados = JSON.stringify(res)
           const converterDados = JSON.parse(lerDados)
           alert('Sua senha é: ' + converterDados.data.password)
-          
+          window.location.href="/";
         })
         
     }
@@ -40,14 +40,14 @@ export default function Recuperar(){
 
     return (
    
-        <div className="divpai">
+        <div className="divpai-recuperar">
 
             <div className="divfilhorecuperar">
                 <p>Esqueceu sua senha?<br/>Digite seu login para recuperá-la</p>
        
-                    <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Nome de usuário" />
+                    <div className="input-button"><input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Nome de usuário" />
                     <br/>
-                    <button onClick={()=>pegarSenha()}>Recuperar senha</button>
+                    <button onClick={()=>pegarSenha()}>Recuperar senha</button></div>
               
             </div>       
             

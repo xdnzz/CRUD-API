@@ -10,3 +10,10 @@
     text-decoration: none;
     color: #fff;
 }
+
+.divpai-cadastrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -32,6 +32,17 @@ textarea {
     resize: none;
 }
 
+.usuario-nome {
+
+    font-size: 12px;
+}
+
+
+
+.estilizacao-reacoes {
+    text-align: right;
+}
+
 button {
     width: 100px;
     height: 30px;
@@ -87,4 +98,8 @@ button {
  padding: 30px;
  width: 500px;
  margin-top: 30px;
+}
+
+.renderizar-conteudo p {
+    margin-bottom: 10px;
 }

@@ -3,7 +3,7 @@
 
 import axios from 'axios'
 
-import './estilo.css'
+import './estilologin.css'
 
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
@@ -67,13 +67,13 @@ export default function Login(){
 
     return (
    
-        <div className="divpai">
+        <div className="divpai-login">
 
             <div className="divfilho">
-                <h1>Login</h1>
+                <h1>Entrar</h1>
                 <form onSubmit={(e)=>submit(e)}>
                     <input onChange={(e)=>handle(e)} type="text" id="username" value={dados.username} placeholder="Login" />
-                    <input onChange={(e)=>handle(e)} type="password" id="password" value={dados.password} placeholder="Password" /> <br/>
+                    <input onChange={(e)=>handle(e)} type="password" id="password" value={dados.password} placeholder="Password" /> 
                     <button type="submit">Logar</button>
                     <div>
                     <Link to="/cadastrar" className="link">Não possui conta? Cadastre-se!</Link> <br/> <Link className="forgot-password" to="/recuperar">Esqueci minha senha</Link>

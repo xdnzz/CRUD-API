@@ -24,10 +24,7 @@ export default function Feed(){
 
     });
 
-    const [react, setReact] = useState({
-   
 
-    })
 
     const [pegar, setPegar] = useState([]);
 
@@ -93,7 +90,7 @@ useEffect(()=>{
   
     loadData();
   }
-  ,[])
+  ,[authAxios])
 
 
     return(
@@ -110,11 +107,13 @@ useEffect(()=>{
                 </form>
             </div>
             <div className="div-conteudo">
+                
                 {pegar.map((e)=>{
                     return(
-                        <div className="renderizar-conteudo">{e.content} <br/>
-                            <button onClick={()=>love(e.id)}>Love</button> | <button onClick={()=>like(e.id)}>Like</button> <br/>
-                            <p>Publicado por: {e.author.username}, {e.createdAt}</p> 
+                        <div className="renderizar-conteudo"><p className="usuario-nome">Por: {e.author.username}</p> 
+                            {e.content} <br/>
+                            <div className="estilizacao-reacoes"> <button onClick={()=>love(e.id)}>Love</button> | <button onClick={()=>like(e.id)}>Like</button> <br/>
+                            </div>
                         </div>
                         
                     )

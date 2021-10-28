@@ -3,7 +3,7 @@
     height: 100%;
 }
 
-.divpai {
+.divpai-recuperar {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -17,8 +17,9 @@
     flex-direction: column;
     background: #7b7777;
     align-items: center;
+    padding-top: 20px;
     width: 350px;
-    height: 130px;
+    height: 150px;
     border-radius: 4px;
     text-align: center;
 }
@@ -28,15 +29,21 @@
 
 }
 
+.input-button {
+    margin-top: 10px;
+}
+
 .divfilhorecuperar input {
     width: 170px;
-    height: 40px;
+    height:25px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
 }
 
 .divfilhorecuperar button {
     border-radius: 5px;
     border: none;
-    padding: 5px;
     cursor: pointer;
     background: #46464d;
     color: #FFf;
