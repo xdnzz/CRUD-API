@@ -59,7 +59,7 @@ function love(id){
      
     })
     .then(res=>{
-       alert(id)
+        console.log(id)
     })
 }
 
@@ -74,7 +74,7 @@ function like(id){
         
     })
     .then(res=>{
-        console.log(res)
+       console.log(id)
     })
    
 }
@@ -112,7 +112,7 @@ useEffect(()=>{
                     return(
                         <div className="renderizar-conteudo"><p className="usuario-nome">Por: {e.author.username}</p> 
                             {e.content} <br/>
-                            <div className="estilizacao-reacoes"> <button onClick={()=>love(e.id)}>Love</button> | <button onClick={()=>like(e.id)}>Like</button> <br/>
+                            <div className="estilizacao-reacoes"> <p onClick={()=>love(e.id)}>Amei!</p> ㅤ <p onClick={()=>like(e.id)}>Curti!</p> <br/>
                             </div>
                         </div>
                         
