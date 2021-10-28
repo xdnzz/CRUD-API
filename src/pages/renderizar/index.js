@@ -24,15 +24,12 @@ export default function Feed(){
 
     });
 
-
-
     const [pegar, setPegar] = useState([]);
-
     const [id, setId] = useState('');
 
 
 function handle(e){
-   
+
     const newData={...data};
     newData[e.target.id] = e.target.value;
     setData(newData);
@@ -40,6 +37,7 @@ function handle(e){
 
 
 function submit(e){
+
     e.preventDefault();
     authAxios.post(url, {
         content: data.content
@@ -50,8 +48,8 @@ function submit(e){
     })
 }
 
-function love(id){
-    
+ function love(id){
+
     authAxios.post(urlReaction, {
         feedId: id,
         like:false,
@@ -59,7 +57,8 @@ function love(id){
      
     })
     .then(res=>{
-        console.log(id)
+        alert(`Você amou essa publicação, se havia uma reação anteriormente, ela foi removida! :D Id da publicação: ${id}`)
+       
     })
 }
 
@@ -69,19 +68,17 @@ function like(id){
     authAxios.post(urlReaction, {
         feedId: id,
         like:true,
-        love:false 
-       
-        
+        love:false           
     })
     .then(res=>{
-       console.log(id)
+        alert(`Você curtiu essa publicação, se havia uma reação anteriormente, ela foi removida! :D Id da publicação: ${id}`)
+    //as reações estão sendo atreladas de "Muitos para muitoso", cada feedID é o ID de um post, só para exibir o console unicamente e ver que está retornando o ID da publicação
     })
    
 }
 
 
 useEffect(()=>{
-
   
     async function loadData(){
       const response = await authAxios.get('https://segware-book-api.segware.io/api/feeds');
@@ -112,7 +109,7 @@ useEffect(()=>{
                     return(
                         <div className="renderizar-conteudo"><p className="usuario-nome">Por: {e.author.username}</p> 
                             {e.content} <br/>
-                            <div className="estilizacao-reacoes"> <p onClick={()=>love(e.id)}>Amei!</p> ㅤ <p onClick={()=>like(e.id)}>Curti!</p> <br/>
+                            <div className="estilizacao-reacoes"> <p onClick={()=>love(e.id)} style={{color: '#FF0000', cursor: 'pointer'}}>Amei!</p> ㅤ <p onClick={()=>like(e.id)} style={{color: '#0040FF', cursor: 'pointer'}}>Curti!</p> <br/>
                             </div>
                         </div>
                         

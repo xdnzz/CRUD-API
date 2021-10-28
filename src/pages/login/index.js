@@ -24,30 +24,23 @@ export default function Login(){
     async function submit(e){
         e.preventDefault();
 
-        if(dados.username !== '' && dados.password!=='' ){
+        if(dados.username !== '' && dados.password!==''){
             await axios.post(url, {
                 username: dados.username,
                 password: dados.password
             })
             .then((res)=>{
+               
                 if(res.status === 200) {
              
                 localStorage.setItem('chave', res.data);
-               
                 window.location.href="/feed";
 
-                }if(res.status !== 200 && res.status!==201){
-                    console.log(res.status)
-                    alert('ops, algo deu errado!');
-                    return;
-                }
-            })
-
-          
+                } 
+            })       
             
-        } else {
-            alert('Ops, algum dos campos está vazio!')
-            return;
+        }  else {
+            alert('Ops, algum dos campos está vazio.')
         }
        
     }
