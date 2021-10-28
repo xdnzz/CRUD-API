@@ -56,13 +56,13 @@ function submit(e){
 function love(id){
     
     authAxios.post(urlReaction, {
-        feedId: 22,
+        feedId: id,
         like:false,
         love:true
      
     })
     .then(res=>{
-        console.log(res)
+       alert(id)
     })
 }
 
@@ -70,7 +70,7 @@ function love(id){
 function like(id){
     
     authAxios.post(urlReaction, {
-        feedId: 22,
+        feedId: id,
         like:true,
         love:false 
        
@@ -113,7 +113,7 @@ useEffect(()=>{
                 {pegar.map((e)=>{
                     return(
                         <div className="renderizar-conteudo">{e.content} <br/>
-                            <button onClick={(e)=>love()}>Love</button> | <button onClick={(e)=>like(e)}>Like</button>
+                            <button onClick={()=>love(e.id)}>Love</button> | <button onClick={()=>like(e.id)}>Like</button> | 
                         </div>
                         
                     )
