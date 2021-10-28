@@ -113,7 +113,8 @@ useEffect(()=>{
                 {pegar.map((e)=>{
                     return(
                         <div className="renderizar-conteudo">{e.content} <br/>
-                            <button onClick={()=>love(e.id)}>Love</button> | <button onClick={()=>like(e.id)}>Like</button> | 
+                            <button onClick={()=>love(e.id)}>Love</button> | <button onClick={()=>like(e.id)}>Like</button> <br/>
+                            <p>Publicado por: {e.author.username}, {e.createdAt}</p> 
                         </div>
                         
                     )
