@@ -25,8 +25,7 @@ export default function Feed(){
     });
 
     const [react, setReact] = useState({
-        like: false,
-        love: false
+   
 
     })
 
@@ -54,42 +53,34 @@ function submit(e){
     })
 }
 
-function love(e){
-    e.preventDefault();
-    const newDataReact={...react};
-    newDataReact[e.target.id] = e.target.value;
-    setReact(newDataReact);
+function love(id){
+    
     authAxios.post(urlReaction, {
-        feedId: id,
-        like:true,
+        feedId: 22,
+        like:false,
         love:true
      
     })
     .then(res=>{
-       // console.log(res)
+        console.log(res)
     })
 }
 
 
-function like(e){
-    e.preventDefault();
-    const newDataReact={...react};
-    newDataReact[e.target.id] = e.target.value;
-    setReact(newDataReact);
+function like(id){
+    
     authAxios.post(urlReaction, {
-        feedId: id,
+        feedId: 22,
         like:true,
-        love:true 
+        love:false 
        
         
     })
     .then(res=>{
-       // console.log(res)
+        console.log(res)
     })
    
 }
-
-
 
 
 useEffect(()=>{
@@ -104,7 +95,6 @@ useEffect(()=>{
   }
   ,[])
 
-  
 
     return(
 
@@ -122,13 +112,12 @@ useEffect(()=>{
             <div className="div-conteudo">
                 {pegar.map((e)=>{
                     return(
-                        
                         <div className="renderizar-conteudo">{e.content} <br/>
-                        <p>{e.id}</p>
-                        <button onClick={(e)=>love(e)}>Love</button> | <button onClick={(e)=>like(e)}>Like</button> 
+                            <button onClick={(e)=>love()}>Love</button> | <button onClick={(e)=>like(e)}>Like</button>
                         </div>
+                        
                     )
-                })}
+                })} 
             </div>
             
        </div>
