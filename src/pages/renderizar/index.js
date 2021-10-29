@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import {useState, useEffect} from 'react'
 
-import './estilo.css'
+import './renderizar.css'
 
 
 export default function Feed(){
@@ -65,7 +65,10 @@ function submit(e){
     })
 }
 
-
+function sair() {
+    localStorage.clear();
+    window.location.href="/";
+}
 function like(id){
     
     authAxios.post(urlReaction, {
@@ -94,9 +97,10 @@ useEffect(()=>{
 
 
     return(
-
+        
        <div className="container-principal">
-            <div className="conteudo-postar">
+           <button className="botao-sair" onClick={()=>sair()}>Sair</button>
+            <div className="conteudo-postar"> 
                 <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
                  className="busca"
                  placeholder="Buscar postagem por nome de usuário"
@@ -121,8 +125,8 @@ useEffect(()=>{
                         }
                 }).map((e)=>{
                     return(
-                        <div className="renderizar-conteudo"><p className="usuario-nome">Por: {e.author.username}</p> 
-                            {e.content} <br/>
+                        <div className="renderizar-conteudo"><p className="usuario-nome">Por: {e.author.username}</p> <br/>
+                            <p>{e.content}</p> <br/>
                             <div className="estilizacao-reacoes"> <p onClick={()=>love(e.id)} style={{color: '#FF0000', cursor: 'pointer'}}>Amei!</p> ㅤ <p onClick={()=>like(e.id)} style={{color: '#0040FF', cursor: 'pointer'}}>Curti!</p> <br/>
                             </div>
                         </div>

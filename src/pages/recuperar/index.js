@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import './estilo.css'
+import './recuperar.css'
 
 import {useState} from 'react'
 

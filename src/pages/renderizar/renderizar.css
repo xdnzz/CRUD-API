@@ -1,0 +1,82 @@
+body {
+    background: url('https://i.imgur.com/P2FVCs4.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-postar {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: rgba(31, 16, 128, 0.638);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.conteudo-postar input {
+    border: none;
+    border-radius: 4px;
+}
+
+.conteudo-postar button {
+    border:none;
+    border-radius: 4px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+    resize: none;
+    margin: 10px 0;
+    border-radius: 4px;
+    border:none;
+
+}
+.conteudo-postar form {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.renderizar-conteudo {
+    color: #FFF;
+    width:500px;
+    background: rgba(6, 6, 94, 0.604);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.estilizacao-reacoes {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botao-sair {
+    margin: 10px 0px 10px 700px;
+    padding: 6px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    
+}
