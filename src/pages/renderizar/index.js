@@ -25,7 +25,10 @@ export default function Feed(){
     });
 
     const [pegar, setPegar] = useState([]);
+
     const [id, setId] = useState('');
+
+    const [search, getSearch] = useState('')
 
 
 function handle(e){
@@ -94,6 +97,10 @@ useEffect(()=>{
 
        <div className="container-principal">
             <div className="conteudo-postar">
+                <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
+                 className="busca"
+                 placeholder="Buscar postagem por nome de usuário"
+                 />
                 <form onSubmit={(e)=>submit(e)}>
                     <textarea className="inputs" onChange={(e)=>handle(e)} type="text" id="content" value={data.content}
                     placeholder="Digite aqui o texto a ser publicado"
@@ -105,7 +112,14 @@ useEffect(()=>{
             </div>
             <div className="div-conteudo">
                 
-                {pegar.map((e)=>{
+                {pegar.filter((bus)=>{
+                    if(search == ""){
+                        return bus
+                    } else if(
+                        bus.author.username.toLowerCase().includes(search.toLowerCase())) {
+                            return bus
+                        }
+                }).map((e)=>{
                     return(
                         <div className="renderizar-conteudo"><p className="usuario-nome">Por: {e.author.username}</p> 
                             {e.content} <br/>
